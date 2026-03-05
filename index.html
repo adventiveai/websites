@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adventive AI — Agentic AI, RAG, Web & Data Engineering | Jaipur</title>
+  <meta name="description" content="Adventive AI is a Jaipur-based technology company delivering Databricks Agentic AI, RAG solutions, web application development, data engineering and data migration for Indian tech B2B and startups." />
+  <meta property="og:title" content="Adventive AI — Agentic AI, RAG, Web & Data Engineering" />
+  <meta property="og:description" content="Jaipur-based specialists in Databricks Agentic AI, RAG solutions, FastAPI, Python, MongoDB, Node.js, and cloud data migration." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.adventiveai.com" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #06061a;
+      --bg-panel:   #0d0d27;
+      --bg-card:    #10102e;
+      --bg-card2:   #13133a;
+      --primary:    #1e1b4b;
+      --indigo:     #4f46e5;
+      --indigo-lt:  #818cf8;
+      --teal:       #00f5ff;
+      --teal-soft:  rgba(0,245,255,0.12);
+      --teal-glow:  0 0 32px rgba(0,245,255,0.35);
+      --text:       #e0e7ff;
+      --text-muted: #8b92b8;
+      --border:     rgba(79,70,229,0.2);
+      --border-lt:  rgba(99,102,241,0.35);
+      --radius:     14px;
+      --radius-sm:  9px;
+      --shadow:     0 20px 60px rgba(6,6,26,0.8);
+      --font:       'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      background: linear-gradient(135deg, #4f46e5, #00f5ff);
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 28px rgba(79,70,229,0.5), var(--teal-glow);
+      transition: transform 0.18s, box-shadow 0.18s;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(79,70,229,0.65), 0 0 50px rgba(0,245,255,0.4);
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+      transition: transform 0.18s, box-shadow 0.18s;
+      white-space: nowrap;
+    }
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(37,211,102,0.6);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.62rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-lt);
+      transition: border-color 0.18s, background 0.18s, transform 0.18s;
+      white-space: nowrap;
+    }
+    .btn-ghost:hover {
+      background: rgba(99,102,241,0.1);
+      border-color: var(--teal);
+      transform: translateY(-1px);
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6,6,26,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 1.5rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f46e5, #00f5ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.04em;
+      box-shadow: 0 0 18px rgba(0,245,255,0.35);
+      flex-shrink: 0;
+    }
+
+    .logo-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .logo-tagline {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      padding: 4px;
+    }
+    .ham span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--text);
+      transition: all 0.25s;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 1rem 1.5rem 1.2rem;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-nav a {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0;
+    }
+    .mobile-nav a:hover { color: var(--teal); }
+    .mobile-nav.open { display: flex; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(79,70,229,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 60px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0,245,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-lt);
+      background: rgba(79,70,229,0.1);
+      font-size: 0.72rem;
+      color: var(--indigo-lt);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 8px var(--teal);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      margin-bottom: 1.1rem;
+    }
+    .hero-title .grad {
+      background: linear-gradient(135deg, #818cf8, #00f5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      max-width: 30rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .stat-item strong {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #818cf8, #00f5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .stat-item span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Hero panel */
+    .hero-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-lt);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow), var(--teal-glow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(0,245,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .panel-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+    .panel-live {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+      color: #4ade80;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      animation: pulse 2s infinite;
+    }
+
+    .panel-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .metric {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.75rem;
+    }
+    .metric-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+    .metric-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .metric-sub {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .stack-row { border-top: 1px dashed var(--border); padding-top: 0.75rem; }
+    .stack-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .stack-pills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .stack-pill {
+      padding: 0.18rem 0.55rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-lt);
+      background: rgba(79,70,229,0.12);
+      font-size: 0.7rem;
+      color: var(--indigo-lt);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 4.5rem 0; }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+    }
+    .section-head { margin-bottom: 2.5rem; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--bg-panel); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+    .svc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(0,245,255,0.06), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .svc-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,245,255,0.15);
+    }
+    .svc-card:hover::after { opacity: 1; }
+
+    .svc-icon { font-size: 1.75rem; margin-bottom: 0.3rem; }
+    .svc-title { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.01em; }
+    .svc-desc { font-size: 0.8rem; color: var(--text-muted); flex: 1; }
+    .svc-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+    .svc-tag {
+      font-size: 0.67rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .svc-link { font-size: 0.75rem; color: var(--teal); margin-top: 0.3rem; }
+
+    /* ── TECH STRIP ── */
+    .tech-strip {
+      padding: 2.5rem 0;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .tech-strip-inner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .tech-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      padding-right: 1rem;
+      border-right: 1px solid var(--border);
+      margin-right: 0.5rem;
+      white-space: nowrap;
+    }
+    .tech-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tech-item {
+      padding: 0.3rem 0.9rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-lt);
+      background: rgba(79,70,229,0.1);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--indigo-lt);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── INDUSTRIES ── */
+    #industries { background: var(--bg); }
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+    .ind-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .ind-card:hover {
+      border-color: var(--indigo-lt);
+      transform: translateY(-3px);
+    }
+    .ind-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .ind-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .ind-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .ind-tags { font-size: 0.72rem; color: var(--teal); letter-spacing: 0.04em; }
+
+    /* ── CASE STUDIES ── */
+    #cases { background: var(--bg-panel); }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.2rem;
+    }
+    .case-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .case-card:hover {
+      border-color: var(--indigo-lt);
+      transform: translateY(-3px);
+    }
+    .case-eyebrow {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--teal);
+    }
+    .case-title { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
+    .case-desc { font-size: 0.82rem; color: var(--text-muted); flex: 1; }
+    .case-outcome {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+    }
+    .case-metric strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #818cf8, #00f5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .case-metric span { font-size: 0.7rem; color: var(--text-muted); }
+    .case-stack { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.3rem; }
+    .case-stack-tag {
+      font-size: 0.67rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 50px;
+      background: rgba(79,70,229,0.15);
+      border: 1px solid var(--border-lt);
+      color: var(--indigo-lt);
+    }
+
+    /* ── APPROACH ── */
+    #approach { background: var(--bg); }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.5rem;
+    }
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .timeline-step {
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-step:not(:last-child) { border-bottom: 1px dashed var(--border); }
+    .step-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f46e5, #00f5ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(0,245,255,0.3);
+      margin-top: 0.1rem;
+    }
+    .step-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
+    .step-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .step-desc { font-size: 0.79rem; color: var(--text-muted); }
+
+    .approach-aside { display: flex; flex-direction: column; gap: 1rem; }
+    .aside-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.1rem 1.2rem;
+      flex: 1;
+    }
+    .aside-card h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+    .check-list li {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .check-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0; top: 0;
+      color: var(--teal);
+      font-size: 0.72rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg-panel); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .about-text { display: flex; flex-direction: column; gap: 0.9rem; }
+    .about-text p { font-size: 0.88rem; color: var(--text-muted); }
+    .about-text p strong { color: var(--text); }
+
+    .about-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 0.9rem;
+    }
+    .about-card-label {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+    .about-card-value { font-size: 0.88rem; font-weight: 700; }
+    .about-card-sub { font-size: 0.72rem; color: var(--text-muted); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.5rem;
+    }
+    .contact-form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .contact-form-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .contact-form-card > p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+    .form-grid .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.22rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.58rem 0.7rem;
+      font-size: 0.82rem;
+      color: var(--text);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    input::placeholder, textarea::placeholder { color: var(--text-muted); }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--indigo);
+      box-shadow: 0 0 0 2px rgba(79,70,229,0.3);
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    select option { background: var(--bg-card2); color: var(--text); }
+
+    /* success/error messages */
+    .form-status {
+      margin-top: 0.75rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      display: none;
+    }
+    .form-status.success {
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.4);
+      color: #4ade80;
+      display: block;
+    }
+    .form-status.error {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.4);
+      color: #f87171;
+      display: block;
+    }
+
+    .form-note { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.6rem; }
+
+    .contact-info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-info-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.1rem; }
+    .contact-info-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+    .contact-item { display: flex; align-items: flex-start; gap: 0.7rem; }
+    .contact-icon {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+    .contact-icon.wa { background: rgba(37,211,102,0.15); }
+    .contact-icon.em { background: rgba(79,70,229,0.15); }
+    .contact-icon.loc { background: rgba(0,245,255,0.1); }
+
+    .contact-item-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
+    .contact-item-value { font-size: 0.85rem; font-weight: 600; word-break: break-all; }
+    .contact-wa-btn { margin-top: auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 1.5rem;
+    }
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .footer-brand .logo-name { font-size: 1rem; margin-bottom: 0.3rem; }
+    .footer-brand p { font-size: 0.78rem; color: var(--text-muted); max-width: 18rem; margin-top: 0.4rem; }
+    .footer-col h5 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-col ul a { font-size: 0.8rem; color: var(--text-muted); transition: color 0.15s; }
+    .footer-col ul a:hover { color: var(--teal); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-panel { max-width: 480px; }
+      .cases-grid, .approach-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .services-grid, .industries-grid { grid-template-columns: 1fr; }
+      .panel-metrics { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .ham { display: flex; }
+      section { padding: 3rem 0; }
+      .hero { padding: 3rem 0 2.5rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .footer-top { flex-direction: column; }
+      .about-cards { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="container">
+    <nav class="navbar">
+      <a href="#" class="nav-logo">
+        <!-- Replace with: <img src="logo.png" alt="Adventive AI" style="height:38px;"> -->
+        <div class="logo-icon">AI</div>
+        <div>
+          <div class="logo-name">Adventive AI</div>
+          <div class="logo-tagline">AI · Data · Web</div>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#cases">Work</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <!-- ✅ CHANGE 1: Removed "Email us" button. Only WhatsApp in nav. -->
+      <div class="nav-actions">
+        <a
+          href="https://wa.me/919739789864?text=Hi%20Adventive%20AI%2C%20I%20want%20to%20discuss%20a%20project"
+          target="_blank"
+          rel="noopener"
+          class="btn-wa"
+        >
+          💬 WhatsApp us
+        </a>
+        <button class="ham" id="hamBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#services" onclick="closeMNav()">Services</a>
+      <a href="#industries" onclick="closeMNav()">Industries</a>
+      <a href="#cases" onclick="closeMNav()">Work</a>
+      <a href="#approach" onclick="closeMNav()">Approach</a>
+      <a href="#about" onclick="closeMNav()">About</a>
+      <a href="#contact" onclick="closeMNav()">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          Jaipur, India — Specialised AI &amp; Data studio
+        </div>
+
+        <h1 class="hero-title">
+          Build smarter with<br />
+          <span class="grad">Agentic AI, RAG</span><br />
+          &amp; modern data engineering.
+        </h1>
+
+        <p class="hero-desc">
+          Adventive AI delivers Databricks-powered Agentic AI, production RAG solutions, full-stack web applications and end-to-end data migrations for Indian tech B2B companies and startups that need results, not just consultants.
+        </p>
+
+        <!-- ✅ CHANGE 1: Removed "Email us" btn. Only WhatsApp + Explore services. -->
+        <div class="hero-btns">
+          <a
+            href="https://wa.me/919739789864?text=Hi%20Adventive%20AI%2C%20I%20want%20to%20discuss%20a%20project"
+            target="_blank"
+            rel="noopener"
+            class="btn-wa"
+          >
+            💬 Chat on WhatsApp
+          </a>
+          <a href="#services" class="btn-ghost">Explore services ↓</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <strong>4+</strong>
+            <span>Core service areas</span>
+          </div>
+          <div class="stat-item">
+            <strong>End-to-end</strong>
+            <span>Delivery model</span>
+          </div>
+          <div class="stat-item">
+            <strong>Databricks</strong>
+            <span>AI platform focus</span>
+          </div>
+          <div class="stat-item">
+            <strong>Any→Any</strong>
+            <span>Data migration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="panel-top">
+          <div class="panel-title">Capability overview</div>
+          <div class="panel-live">
+            <div class="live-dot"></div> Active engagements
+          </div>
+        </div>
+        <div class="panel-metrics">
+          <div class="metric">
+            <div class="metric-label">Agentic AI rollout</div>
+            <div class="metric-value">6–8 wks</div>
+            <div class="metric-sub">Discovery to first live users.</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Data pipeline scale</div>
+            <div class="metric-value">1B+ rows</div>
+            <div class="metric-sub">Monthly on Databricks lakehouse.</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Migration model</div>
+            <div class="metric-value">Any → Any</div>
+            <div class="metric-sub">Platform-agnostic, zero-downtime.</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Deployment target</div>
+            <div class="metric-value">Cloud-native</div>
+            <div class="metric-sub">API-first, observable, scalable.</div>
+          </div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-label">Primary tech stack</div>
+          <div class="stack-pills">
+            <span class="stack-pill">Databricks</span>
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">FastAPI</span>
+            <span class="stack-pill">MongoDB</span>
+            <span class="stack-pill">Node.js</span>
+            <span class="stack-pill">React</span>
+            <span class="stack-pill">MLflow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH STRIP ── -->
+<div class="tech-strip">
+  <div class="container">
+    <div class="tech-strip-inner">
+      <div class="tech-label">Tech we work with</div>
+      <div class="tech-items">
+        <span class="tech-item">Databricks</span>
+        <span class="tech-item">Python</span>
+        <span class="tech-item">FastAPI</span>
+        <span class="tech-item">MongoDB</span>
+        <span class="tech-item">Node.js</span>
+        <span class="tech-item">React</span>
+        <span class="tech-item">MLflow</span>
+        <span class="tech-item">Delta Lake</span>
+        <span class="tech-item">Spark</span>
+        <span class="tech-item">Snowflake</span>
+        <span class="tech-item">Azure / AWS</span>
+        <span class="tech-item">LangChain</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">What we do</div>
+      <h2 class="section-title">Four core service areas.</h2>
+      <p class="section-subtitle">
+        Deep engineering expertise in AI, application development and data platforms to deliver measurable outcomes for Indian tech companies and startups.
+      </p>
+    </div>
+    <div class="services-grid">
+      <article class="svc-card">
+        <div class="svc-icon">🤖</div>
+        <h3 class="svc-title">Generative AI &amp; Agentic AI</h3>
+        <p class="svc-desc">Databricks-powered Agentic AI systems, production RAG pipelines and internal AI tools—designed to be reliable, auditable and embedded into existing workflows.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Databricks agents</span>
+          <span class="svc-tag">RAG / vector search</span>
+          <span class="svc-tag">LLM fine-tuning</span>
+          <span class="svc-tag">Internal copilots</span>
+          <span class="svc-tag">Document Q&amp;A</span>
+        </div>
+        <a href="#contact" class="svc-link">Start a conversation →</a>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-icon">🌐</div>
+        <h3 class="svc-title">Web Application Development</h3>
+        <p class="svc-desc">Scalable, API-first web platforms with modern frontends and secure backends—from MVPs to complex enterprise tools—built to be maintainable from day one.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">FastAPI + Python</span>
+          <span class="svc-tag">Node.js</span>
+          <span class="svc-tag">React</span>
+          <span class="svc-tag">MongoDB</span>
+          <span class="svc-tag">REST &amp; GraphQL</span>
+        </div>
+        <a href="#contact" class="svc-link">Discuss your project →</a>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-icon">⚙️</div>
+        <h3 class="svc-title">Data Engineering &amp; Analytics</h3>
+        <p class="svc-desc">Reliable batch and streaming pipelines, curated data models and analytics layers built on Databricks and Delta Lake—so teams trust the data and ship faster.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Databricks / Spark</span>
+          <span class="svc-tag">Delta Lake</span>
+          <span class="svc-tag">Batch &amp; streaming</span>
+          <span class="svc-tag">Data quality</span>
+          <span class="svc-tag">ML-ready datasets</span>
+        </div>
+        <a href="#approach" class="svc-link">See our approach →</a>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-icon">↔️</div>
+        <h3 class="svc-title">Data Migration &amp; Modernisation</h3>
+        <p class="svc-desc">Any-to-any data migrations tailored to your requirements—on-prem to cloud, relational to lakehouse, or cross-platform—with zero-downtime cut-overs and governance built in.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Any-to-any</span>
+          <span class="svc-tag">Schema redesign</span>
+          <span class="svc-tag">Zero-downtime</span>
+          <span class="svc-tag">Rollback-safe</span>
+          <span class="svc-tag">Compliance-aware</span>
+        </div>
+        <a href="#cases" class="svc-link">Review a case study →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── INDUSTRIES ── -->
+<section id="industries">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Who we work with</div>
+      <h2 class="section-title">Industries we serve.</h2>
+      <p class="section-subtitle">
+        Our work focuses on data-intensive and digital-first businesses across Indian B2B tech, fintech and SaaS where reliability and speed-to-value directly affect growth.
+      </p>
+    </div>
+    <div class="industries-grid">
+      <article class="ind-card">
+        <div class="ind-icon">💳</div>
+        <h3 class="ind-title">Fintech &amp; Financial Services</h3>
+        <p class="ind-desc">Transaction scoring, fraud detection pipelines, customer onboarding and internal decision-support tools—combining explainable ML with auditable data flows.</p>
+        <div class="ind-tags">Credit risk · Fraud analytics · Internal copilots · Workflow automation</div>
+      </article>
+      <article class="ind-card">
+        <div class="ind-icon">✈️</div>
+        <h3 class="ind-title">Travel, Hospitality &amp; Booking</h3>
+        <p class="ind-desc">Booking engines, real-time availability and pricing systems, property dashboards and customer notification integrations handling high-volume transactions.</p>
+        <div class="ind-tags">Booking platforms · Inventory mgmt · Real-time status · Payment integration</div>
+      </article>
+      <article class="ind-card">
+        <div class="ind-icon">🚀</div>
+        <h3 class="ind-title">SaaS, Startups &amp; Digital Products</h3>
+        <p class="ind-desc">AI-driven features, usage analytics, scalable backend architecture and admin consoles for product teams that need to move fast without technical debt.</p>
+        <div class="ind-tags">AI feature add-ons · Usage analytics · Billing flows · Admin portals</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES ── -->
+<section id="cases">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Selected work</div>
+      <h2 class="section-title">Examples of what we deliver.</h2>
+      <p class="section-subtitle">Realistic illustrative engagements that reflect the kind of problems we solve and outcomes we target.</p>
+    </div>
+    <div class="cases-grid">
+      <article class="case-card">
+        <div class="case-eyebrow">Generative AI · Fintech · Databricks</div>
+        <h3 class="case-title">Agentic credit-risk assistant for underwriting teams</h3>
+        <p class="case-desc">A Databricks-based agentic system that retrieves policy rules, historical risk cases and live model scores for credit analysts—embedded into their existing workflow tools with full audit trails and role-based access controls.</p>
+        <div class="case-stack">
+          <span class="case-stack-tag">Databricks</span>
+          <span class="case-stack-tag">MLflow</span>
+          <span class="case-stack-tag">Python</span>
+          <span class="case-stack-tag">FastAPI</span>
+          <span class="case-stack-tag">MongoDB</span>
+          <span class="case-stack-tag">LangChain</span>
+        </div>
+        <div class="case-outcome">
+          <div class="case-metric"><strong>35%</strong><span>Faster case review</span></div>
+          <div class="case-metric"><strong>100%</strong><span>Auditable sources</span></div>
+          <div class="case-metric"><strong>0</strong><span>Hallucinations post-guardrailing</span></div>
+        </div>
+      </article>
+      <article class="case-card">
+        <div class="case-eyebrow">Data Engineering · Any-to-any Migration</div>
+        <h3 class="case-title">Legacy RDBMS to Databricks lakehouse for a SaaS platform</h3>
+        <p class="case-desc">Full schema redesign and pipeline replatforming from a legacy relational database to a Databricks Delta lakehouse, enabling faster analytics, streaming capability and ML-ready feature tables.</p>
+        <div class="case-stack">
+          <span class="case-stack-tag">Databricks</span>
+          <span class="case-stack-tag">Delta Lake</span>
+          <span class="case-stack-tag">Spark</span>
+          <span class="case-stack-tag">Python</span>
+          <span class="case-stack-tag">Azure</span>
+        </div>
+        <div class="case-outcome">
+          <div class="case-metric"><strong>Zero</strong><span>Downtime cut-over</span></div>
+          <div class="case-metric"><strong>6×</strong><span>Query speed gain</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── APPROACH ── -->
+<section id="approach">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">How we work</div>
+      <h2 class="section-title">Structured delivery. Pragmatic engineering.</h2>
+      <p class="section-subtitle">A four-phase delivery process that keeps stakeholders aligned while the solution moves steadily to production.</p>
+    </div>
+    <div class="approach-grid">
+      <div class="timeline-card">
+        <div class="timeline-step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-label">Phase 01</div>
+            <div class="step-title">Discovery &amp; Solution Framing</div>
+            <p class="step-desc">We clarify goals, data sources, integration points and constraints, then propose a target architecture and phased roadmap aligned to your priorities and budget.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-label">Phase 02</div>
+            <div class="step-title">Architecture &amp; API Design</div>
+            <p class="step-desc">Data models, API contracts, security posture and observability requirements are defined before heavy implementation begins—reducing costly rework.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-label">Phase 03</div>
+            <div class="step-title">Iterative Implementation</div>
+            <p class="step-desc">Features are built in short sprints with regular demos, CI/CD pipelines from day one, and integration with your identity, logging and monitoring stack.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-label">Phase 04</div>
+            <div class="step-title">Hardening, Launch &amp; Handover</div>
+            <p class="step-desc">Performance, security and resilience hardening, supported go-live, and complete documentation, runbooks and knowledge transfer for your internal teams.</p>
+          </div>
+        </div>
+      </div>
+      <div class="approach-aside">
+        <div class="aside-card">
+          <h4>Engagement models</h4>
+          <ul class="check-list">
+            <li>Autonomous delivery pod (we own end-to-end).</li>
+            <li>Co-build partner embedded with your team.</li>
+            <li>Specialist extension for AI &amp; data initiatives.</li>
+            <li>Short-term audit or architecture advisory.</li>
+          </ul>
+        </div>
+        <div class="aside-card">
+          <h4>Our commitments</h4>
+          <ul class="check-list">
+            <li>Clear milestones and outcome-based progress tracking.</li>
+            <li>Transparent communication with technical and business stakeholders.</li>
+            <li>Architecture designed for future evolution, not lock-in.</li>
+            <li>Clean, documented code handed over after every engagement.</li>
+            <li>Optional post-launch support and monitoring.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">About Adventive AI</div>
+      <h2 class="section-title">Built by engineers who ship.</h2>
+      <p class="section-subtitle">A Jaipur-based technology studio specialising in Agentic AI, data engineering and web applications—helping Indian B2B companies and startups leverage AI and data at scale.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p><strong>Adventive AI</strong> was founded with one belief: the gap between an AI or data idea and a reliable production system should be as small as possible. Too many projects stall in PoC or get delivered as unmaintainable systems. We fix that.</p>
+        <p>We bring hands-on engineering experience across <strong>Databricks Agentic AI, RAG architectures, FastAPI/Python/Node.js web platforms and MongoDB-backed applications</strong>—combining the depth of a specialist with the breadth of an end-to-end delivery partner.</p>
+        <p>Whether you are a startup building your first AI-powered product, a tech company modernising a legacy data stack, or an enterprise looking for a reliable engineering partner—we work with you as a <strong>partner, not a vendor</strong>.</p>
+        <div>
+          <a
+            href="https://wa.me/919739789864?text=Hi%20Adventive%20AI%2C%20I%20want%20to%20know%20more%20about%20your%20team"
+            target="_blank"
+            rel="noopener"
+            class="btn-wa"
+            style="margin-top:0.5rem;"
+          >
+            💬 Let's connect on WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-label">Headquarters</div>
+          <div class="about-card-value">Jaipur, Rajasthan</div>
+          <div class="about-card-sub">India — remote-friendly globally.</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-label">Primary focus</div>
+          <div class="about-card-value">AI &amp; Data</div>
+          <div class="about-card-sub">Agentic AI, RAG, pipelines, migrations.</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-label">Target clients</div>
+          <div class="about-card-value">Indian B2B tech</div>
+          <div class="about-card-sub">Startups and SMEs scaling with AI.</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-label">Delivery style</div>
+          <div class="about-card-value">PoC → Prod</div>
+          <div class="about-card-sub">We refine PoCs and scale responsibly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Contact us</div>
+      <h2 class="section-title">Tell us about your project.</h2>
+      <p class="section-subtitle">Share a brief about your initiative and we will follow up within one business day to understand fit and next steps.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- ✅ CHANGE 2: Form posts to Formspree → delivers to info@adventiveai.com -->
+      <div class="contact-form-card">
+        <h3>Send us a message</h3>
+        <p>Fill in the form below. Your message goes directly to <strong>info@adventiveai.com</strong>.</p>
+
+<!-- Contact Form (Formspree) -->
+<form
+  id="contactForm"
+  action="https://formspree.io/f/xlgprdke"
+  method="POST"
+  class="form-grid"
+>
+  <!-- Optional: sets default reply-to & subject in the email -->
+  <input type="hidden" name="_replyto" value="info@adventiveai.com" />
+  <input type="hidden" name="_subject" value="New project inquiry — Adventive AI website" />
+
+  <div>
+    <label for="cname">Full name *</label>
+    <input
+      id="cname"
+      name="name"
+      type="text"
+      placeholder="Your name"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="ccompany">Company / startup</label>
+    <input
+      id="ccompany"
+      name="company"
+      type="text"
+      placeholder="Company or team name"
+    />
+  </div>
+
+  <div>
+    <label for="cemail">Work email *</label>
+    <input
+      id="cemail"
+      name="email"
+      type="email"
+      placeholder="you@company.com"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="cphone">Phone / WhatsApp</label>
+    <input
+      id="cphone"
+      name="phone"
+      type="tel"
+      placeholder="+91 XXXXX XXXXX"
+    />
+  </div>
+
+  <div class="full">
+    <label for="cservice">Service of interest</label>
+    <select id="cservice" name="service">
+      <option value="">Select a service…</option>
+      <option>Generative AI / Agentic AI</option>
+      <option>RAG solutions / Internal AI tools</option>
+      <option>Web application development</option>
+      <option>Data engineering &amp; analytics</option>
+      <option>Data migration &amp; modernisation</option>
+      <option>Not sure — need a consultation</option>
+    </select>
+  </div>
+
+  <div class="full">
+    <label for="cmsg">Project brief *</label>
+    <textarea
+      id="cmsg"
+      name="message"
+      placeholder="Describe what you want to build or solve. Include current stack, scale and timeline if possible."
+      required
+    ></textarea>
+  </div>
+
+  <div class="full">
+    <button
+      type="submit"
+      class="btn-primary"
+      id="submitBtn"
+      style="width:100%; justify-content:center;"
+    >
+      ✉ Send message to Adventive AI
+    </button>
+  </div>
+</form>
+
+        <!-- Status messages -->
+        <div class="form-status" id="formSuccess">
+          ✅ Message sent! We'll reply to you at <strong>info@adventiveai.com</strong> within 1 business day.
+        </div>
+        <div class="form-status" id="formError">
+          ❌ Something went wrong. Please email us directly at <strong>info@adventiveai.com</strong> or reach out on WhatsApp.
+        </div>
+
+      </div>
+
+      <!-- ✅ CHANGE 3: WhatsApp button opens pre-filled chat to +919739789864 -->
+      <div class="contact-info-card">
+        <div>
+          <h3>Reach us directly</h3>
+          <p>Prefer a quick conversation? Tap below to open WhatsApp and send us a message instantly. We typically respond within a few hours.</p>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon wa">💬</div>
+          <div>
+            <div class="contact-item-label">WhatsApp</div>
+            <div class="contact-item-value">+91 97397 89864</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon em">✉</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">info@adventiveai.com</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon loc">📍</div>
+          <div>
+            <div class="contact-item-label">Headquarters</div>
+            <div class="contact-item-value">Jaipur, Rajasthan, India</div>
+          </div>
+        </div>
+
+        <div class="contact-wa-btn">
+          <a
+            href="https://wa.me/919739789864?text=Hi%20Adventive%20AI%2C%20I%20found%20your%20website%20and%20want%20to%20discuss%20a%20project.%20Here%20are%20my%20details%3A"
+            target="_blank"
+            rel="noopener"
+            class="btn-wa"
+            style="width:100%; justify-content:center;"
+          >
+            💬 Open WhatsApp chat
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.4rem;">
+          <div class="logo-icon" style="width:32px;height:32px;font-size:0.65rem;">AI</div>
+          <div class="logo-name">Adventive AI</div>
+        </div>
+        <p>Jaipur-based AI &amp; data engineering studio helping Indian tech B2B companies and startups build Agentic AI, RAG solutions, web apps and scalable data infrastructure.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Generative &amp; Agentic AI</a></li>
+          <li><a href="#services">RAG solutions</a></li>
+          <li><a href="#services">Web application development</a></li>
+          <li><a href="#services">Data engineering</a></li>
+          <li><a href="#services">Data migration</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#cases">Our work</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li>
+            <a
+              href="https://wa.me/919739789864?text=Hi%20Adventive%20AI%2C%20I%20want%20to%20discuss%20a%20project"
+              target="_blank"
+              rel="noopener"
+            >
+              💬 +91 97397 89864
+            </a>
+          </li>
+          <li><a href="mailto:info@adventiveai.com">✉ info@adventiveai.com</a></li>
+          <li><a href="#contact">📍 Jaipur, Rajasthan, India</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="yr"></span> Adventive AI. All rights reserved. Jaipur, Rajasthan, India.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── SCRIPTS ── -->
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  const hamBtn = document.getElementById('hamBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  hamBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  function closeMNav() { mobileNav.classList.remove('open'); }
+
+  // ✅ CHANGE 2: Async form submission via Formspree (AJAX)
+  // This prevents page redirect and shows inline success/error messages.
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successMsg = document.getElementById('formSuccess');
+  const errorMsg = document.getElementById('formError');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        successMsg.classList.add('success');
+        successMsg.style.display = 'block';
+        form.reset();
+        submitBtn.textContent = '✅ Message sent!';
+        setTimeout(() => {
+          submitBtn.textContent = '✉ Send message to Adventive AI';
+          submitBtn.disabled = false;
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (err) {
+      errorMsg.classList.add('error');
+      errorMsg.style.display = 'block';
+      submitBtn.textContent = '✉ Send message to Adventive AI';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
